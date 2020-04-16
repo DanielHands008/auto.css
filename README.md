@@ -14,7 +14,9 @@ Insert after the linked style sheet.
     --link-color: skyblue;
     --link-color-active: red;
     --link-color-visited: skyblue;
-    --link-underline-color: #EA215A;
+    --link-underline-color: #0000;
+    --link-underline-color-hover: #EA215A;
+    --button-text-color: white;
     --input-color: white;
     --input-disabled-color: lightgrey;
     --primary-color: rgb(0, 90, 255);

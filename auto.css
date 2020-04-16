@@ -10,7 +10,9 @@
     --link-color: skyblue;
     --link-color-active: red;
     --link-color-visited: skyblue;
-    --link-underline-color: #EA215A;
+    --link-underline-color: #0000;
+    --link-underline-color-hover: #EA215A;
+    --button-text-color: white;
     --input-color: white;
     --input-disabled-color: lightgrey;
     --primary-color: rgb(0, 90, 255);
@@ -22,11 +24,11 @@
 }
 
 body {
-    padding-bottom: 0;
-    background-color: var(--bg-color);
-    margin: auto;
     font-family: sans-serif;
     color: var(--color);
+    background-color: var(--bg-color);
+    margin: auto;
+    padding-bottom: 0;
 }
 
 header {
@@ -45,17 +47,21 @@ footer {
     padding: 1rem;
 }
 
-a {
+a[href] {
     color: var(--link-color);
     text-decoration-color: var(--link-underline-color);
     text-decoration-thickness: .1rem;
 }
 
-a:active {
+a[href]:hover {
+    text-decoration-color: var(--link-underline-color-hover);
+}
+
+a[href]:active {
     color: var(--link-color-active)
 }
 
-a:visited {
+a[href]:visited {
     color: var(--link-color-visited)
 }
 
@@ -67,10 +73,10 @@ mark {
 blockquote:before,
 blockquote:after {
     content: '\275D';
-    line-height: 1rem;
+    line-height: 0rem;
     font-size: 2rem;
     position: relative;
-    bottom: -.5rem;
+    bottom: -.6rem;
 }
 
 blockquote:after {
@@ -96,18 +102,18 @@ kbd {
 }
 
 code {
-    background: var(--input-color);
-    border-left: 3px solid var(--primary-color);
     color: var(--bg-color);
+    background: var(--input-color);
     page-break-inside: avoid;
     font-family: monospace;
+    font-size: .9rem;
+    word-wrap: break-word;
     line-height: 1.5;
+    border-left: 3px solid var(--primary-color);
+    border-radius: var(--border-radius);
     overflow: auto;
     padding: 1em 1.5em;
     display: block;
-    word-wrap: break-word;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
 }
 
 table {
@@ -150,6 +156,7 @@ nav>ul>li:not(:first-child) {
 }
 
 nav ul li ul {
+    background-color: var(--nav-menu-bg-color);
     position: absolute;
     display: none;
     flex-direction: column;
@@ -157,7 +164,6 @@ nav ul li ul {
     width: auto;
     border-radius: var(--border-radius);
     padding: .5rem 1rem;
-    background-color: var(--nav-menu-bg-color);
 }
 
 nav ul li:hover ul {
@@ -181,14 +187,14 @@ select:not(:disabled) {
 
 button,
 input[type="submit"] {
-    border-radius: var(--border-radius);
+    color: var(--button-text-color);
+    background-color: var(--primary-color);
     font-size: medium;
     font-weight: bold;
-    line-height: 1px;
+    line-height: .4rem;
     padding: .9rem 1.5rem;
-    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
     border: 0px;
-    color: white;
 }
 
 input:not([type="submit"]):not([type="file"]):not([type="range"]):not(:disabled),
@@ -238,6 +244,7 @@ input[type="radio"],
 input[type="range"],
 select,
 textarea {
+    appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
 }
@@ -255,9 +262,9 @@ input[type="radio"] {
     border-radius: 100%;
 }
 
-input[type="checkbox"]:checked:after,
-input[type="radio"]:checked:after {
-    content: '\2714';
+input[type="checkbox"]:checked:after {
+    font-family: Arial, Helvetica, sans-serif;
+    content: '\2714\00FE0E';
     position: absolute;
     top: 0px;
     left: .25rem;
@@ -266,10 +273,14 @@ input[type="radio"]:checked:after {
 }
 
 input[type="radio"]:checked:after {
-    content: '\25CF';
-    top: -0.44rem;
-    left: .2rem;
-    font-size: 1.5rem;
+    content: '';
+    background-color: var(--primary-color);
+    border-radius: 100%;
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    left: .25rem;
+    top: .25rem;
 }
 
 select {
@@ -305,20 +316,27 @@ input[type="range"] {
     margin: .5rem 0rem;
 }
 
-input[type=range]::-webkit-slider-thumb,
+input[type=range]::-webkit-slider-thumb {
+    background-color: var(--primary-color);
+}
+
 input[type=range]::-moz-range-thumb {
     height: 1rem;
-    width: .4rem;
-    border-radius: var(--border-radius);
+    width: 1rem;
+    border-radius: 100%;
     border: 0;
-    background: var(--input-color);
+    background-color: var(--primary-color);
     margin-top: -14px;
 }
 
 button:disabled,
 input:disabled,
 select:disabled,
-input:disabled[type=range]::-webkit-slider-thumb,
+input:disabled[type=range]::-webkit-slider-thumb {
+    background-color: var(--input-disabled-color);
+    cursor: not-allowed;
+}
+
 input:disabled[type=range]::-moz-range-thumb {
     background-color: var(--input-disabled-color);
     cursor: not-allowed;
