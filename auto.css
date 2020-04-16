@@ -1,0 +1,325 @@
+/*
+  auto.css by DanielHands008
+  https://github.com/DanielHands008/auto.css
+*/
+
+:root {
+    --bg-color: #202B38;
+    --nav-menu-bg-color: rgb(41, 48, 58);
+    --color: white;
+    --link-color: skyblue;
+    --link-color-active: red;
+    --link-color-visited: skyblue;
+    --input-color: white;
+    --input-disabled-color: lightgrey;
+    --shadow-color: #5555;
+    --primary-color: rgb(0, 90, 255);
+    --primary-hover-color: rgb(0, 120, 255);
+    --secondary-color: #4CAF50;
+    --mark-color: black;
+    --mark-color-bg: pink;
+    --footer-color: rgb(0, 90, 255);
+    --border-radius: .2rem;
+}
+
+body {
+    padding-bottom: 0;
+    max-width: 1000px;
+    background-color: var(--bg-color);
+    margin: auto;
+    font-family: sans-serif;
+    color: var(--color);
+}
+
+header {
+    padding-top: 1rem;
+}
+
+header,
+main,
+footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+footer {
+    background-color: var(--footer-color);
+    padding: 1rem;
+}
+
+a {
+    color: var(--link-color)
+}
+
+a:active {
+    color: var(--link-color-active)
+}
+
+a:visited {
+    color: var(--link-color-visited)
+}
+
+mark {
+    color: var(--mark-color);
+    background-color: var(--mark-color-bg);
+}
+
+blockquote:before,
+blockquote:after {
+    content: '\275D';
+    line-height: 1rem;
+    font-size: 2rem;
+    position: relative;
+    bottom: -.5rem;
+}
+
+blockquote:after {
+    content: '\275E';
+}
+
+details {
+    margin: .5rem 0rem;
+}
+
+details summary {
+    cursor: pointer;
+}
+
+details p {
+    margin: 0;
+}
+
+kbd {
+    border: solid 1px var(--color);
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+code {
+    background: var(--input-color);
+    border-left: 3px solid var(--secondary-color);
+    color: var(--bg-color);
+    page-break-inside: avoid;
+    font-family: monospace;
+    line-height: 1.5;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+    border-radius: var(--border-radius);
+}
+
+table {
+    color: var(--bg-color);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table th {
+    color: var(--input-color);
+    background-color: var(--secondary-color);
+    text-align: left;
+}
+
+table tr td {
+    background-color: #ccc;
+}
+
+table tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+}
+
+nav>ul>li:not(:first-child) {
+    margin-left: .5rem;
+}
+
+nav ul li ul {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    right: 0;
+    width: auto;
+    box-shadow: .1rem .1rem .5rem var(--shadow-color);
+    border: solid var(--shadow-color) .15px;
+    border-radius: var(--border-radius);
+    padding: .5rem 1rem;
+    background-color: var(--nav-menu-bg-color);
+}
+
+nav ul li:hover ul {
+    display: flex;
+}
+
+nav ul li ul li {
+    position: relative;
+    text-align: left;
+    width: auto;
+    white-space: nowrap;
+    padding: .25rem;
+    padding-top: 0;
+}
+
+button:not(:disabled),
+input:not(:disabled),
+select:not(:disabled) {
+    cursor: pointer;
+}
+
+button,
+input[type="submit"] {
+    border-radius: var(--border-radius);
+    font-size: medium;
+    font-weight: bold;
+    line-height: 1px;
+    padding: .9rem 1.5rem;
+    background-color: var(--primary-color);
+    border: 0px;
+    color: white;
+}
+
+input:not([type="submit"]):not([type="file"]):not([type="range"]):not(:disabled),
+select,
+textarea {
+    background-color: var(--input-color);
+}
+
+button:hover:not(:disabled),
+input[type="submit"]:hover:not(:disabled) {
+    background-color: var(--primary-hover-color);
+}
+
+button:active:not(:disabled),
+input[type="submit"]:active:not(:disabled) {
+    box-shadow: inset 0 0 5px #0005;
+}
+
+fieldset {
+    border: solid 1px;
+    border-left: 0;
+    border-right: 0;
+    width: 0px;
+    margin: 1rem 0rem;
+}
+
+fieldset legend {
+    font-size: large;
+    font-weight: bold;
+}
+
+label {
+    margin: .4rem;
+}
+
+input {
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    padding: .4rem;
+    font-size: medium;
+    margin: .2rem 0rem;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+select,
+textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    top: .4rem;
+    border-radius: 0px;
+    padding: .65rem;
+    display: inline-block;
+    position: relative;
+}
+
+input[type="radio"] {
+    border-radius: 100%;
+}
+
+input[type="checkbox"]:checked:after,
+input[type="radio"]:checked:after {
+    content: '\2714';
+    position: absolute;
+    top: 0px;
+    left: .25rem;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+input[type="radio"]:checked:after {
+    content: '\25CF';
+    top: -0.44rem;
+    left: .2rem;
+    font-size: 1.5rem;
+}
+
+select {
+    border: 0;
+    font-size: medium;
+    padding: .3rem;
+    border-radius: var(--border-radius);
+    margin: .3rem 0;
+}
+
+select:not([multiple]) {
+    background: var(--input-color) url('data:image/svg+xml,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg>') calc(100% - 12px) 50% / 12px no-repeat;
+    padding-right: 1.5rem;
+}
+
+select[multiple] {
+    padding-right: 10px;
+    overflow-y: auto;
+}
+
+textarea {
+    border: 0;
+    border-radius: var(--border-radius);
+    padding: .3rem;
+}
+
+input[type="range"] {
+    background-color: var(--input-color);
+    height: .3rem;
+    border-radius: 1rem;
+    padding: 0;
+    margin: .5rem 0rem;
+}
+
+input[type=range]::-webkit-slider-thumb,
+input[type=range]::-moz-range-thumb {
+    height: 1rem;
+    width: .4rem;
+    border-radius: var(--border-radius);
+    border: 0;
+    background: var(--input-color);
+    margin-top: -14px;
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+input:disabled[type=range]::-webkit-slider-thumb,
+input:disabled[type=range]::-moz-range-thumb {
+    background-color: var(--input-disabled-color);
+    cursor: not-allowed;
+}
