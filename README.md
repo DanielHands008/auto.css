@@ -4,6 +4,7 @@ auto.css is a classless css framework with several variables to edit.
 <link  rel="stylesheet"  href="auto.css"  type="text/css">
 ```
 ## Customization
+Insert after the linked style sheet.
 ```html
 <style>
   :root {
@@ -26,4 +27,3 @@ auto.css is a classless css framework with several variables to edit.
 </style>
 ```
 >  **Tip:** Set `--link-underline-color` to `#0000` to remove link underlines.
-> Insert after the linked style sheet.
