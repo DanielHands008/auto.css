@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>auto.css</title>
     <link rel="stylesheet" href="auto.css" type="text/css">
 </head>
@@ -33,6 +34,7 @@
         <p>This is a paragraph with <b>bold</b>, <strong>strong</strong>, <i>italic</i>, <mark>marked</mark>,
             <small>small</small>, <del>deleted</del>, <ins>inserted</ins>, <sub>subscript</sub>, and <sup>superscript</sup> text.
         </p>
+        <hr>
         <p><q>Imagination is more important than knowledge. Knowledge is limited. Imagination encircles the world.</q> - Albert Einstein</p>
         <p>A quote by Albert Einstein:</p>
         <blockquote cite="https://www.goalcast.com/2017/03/29/top-30-most-inspiring-albert-einstein-quotes/">
@@ -48,7 +50,7 @@
             <summary>Expand</summary>
             <p>The details tag can be used to hide content until the user click on it.</p>
         </details>
-
+<br>
         <details open>
             <summary>Expand</summary>
             <p>This one starts open.</p>
@@ -61,19 +63,27 @@
                 <input type="text" id="text" name="text" value="text"><br><br>
                 <label for="password">Password</label><br>
                 <input type="password" name="password" value="password"><br><br>
+                <label for="requiredText">Required Text</label><br>
+                <input type="text" id="requiredText" name="requiredText" value="" placeholder="Required" required><br>
+                <label><input type="checkbox" name="CheckboxR" required> Required Checkbox</label><br><br>
                 <input type="submit" value="Submit">
             </fieldset>
-            <button>Button</button>
-            <button disabled>Disabled</button>
+            <button>Button</button><br>
+            <button disabled>Disabled</button><br>
+            <input type="button" value="Input Button">
             <br>
-            <input type="checkbox" name="Checkbox1"> First Checkbox<br>
-            <input type="checkbox" name="Checkbox2" checked> Second Checkbox<br>
-            <input type="checkbox" name="CheckboxD" disabled> Disabled Checkbox<br>
-            <input type="radio" name="Radio" value="Radio1"> First Radio<br>
-            <input type="radio" name="Radio" value="Radio2" checked> Second Radio<br>
-            <input type="radio" name="Radio" value="RadioD" disabled> Disabled Radio<br>
+            <label><input type="checkbox" name="Checkbox1"> First Checkbox</label><br>
+            <label><input type="checkbox" name="Checkbox2" checked> Second Checkbox</label><br>
+            <label><input type="checkbox" name="CheckboxD" disabled> Disabled Checkbox</label><br>
+            <label><input type="radio" name="Radio" value="Radio1"> First Radio</label><br>
+            <label><input type="radio" name="Radio" value="Radio2" checked> Second Radio</label><br>
+            <label><input type="radio" name="Radio" value="RadioD" disabled> Disabled Radio</label><br>
             <input type="text" name="disabledText" value="Disabled input" disabled><br>
             <input type="file" name="image"><br>
+            <input type="number" value="42"><br>
+            <input type="time"><br>
+            <input type="date"><br>
+            <input type="datetime-local"><br>
             <select id="selection" name="selection">
         <option value="selection1" selected>Selection 1</option>
         <option value="selection2">Selection 2</option>
@@ -90,6 +100,10 @@
             <input type="range" name="range" id="rang" min="0" max="10"><br>
             <input type="range" name="range" id="rang" min="0" max="10" disabled>
         </form>
+        <br>
+        <progress value="50" max="100">50%</progress>
+        <br>
+        <br>
         <table>
             <tr>
                 <th>Firstname</th>
@@ -122,11 +136,19 @@
             <li>Ordered List Item 2</li>
             <li>Ordered List Item 3</li>
         </ol>
+        <dl>
+            <dt>Coffee</dt>
+            <dd>Black hot drink</dd>
+            <dt>Milk</dt>
+            <dd>White cold drink</dd>
+        </dl>
         <pre><code>#header h1 a {
   display: block;
   width: 300px;
   height: 80px;
 }</code></pre>
+        <br>
+        <samp>Sample output from a computer program</samp>
         <p>Save the document by pressing <kbd>Ctrl</kbd> + <kbd>S</kbd></p>
     </main>
     <footer>
