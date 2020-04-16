@@ -10,14 +10,13 @@
     --link-color: skyblue;
     --link-color-active: red;
     --link-color-visited: skyblue;
+    --link-underline-color: #EA215A;
     --input-color: white;
     --input-disabled-color: lightgrey;
-    --shadow-color: #5555;
     --primary-color: rgb(0, 90, 255);
     --primary-hover-color: rgb(0, 120, 255);
-    --secondary-color: #4CAF50;
     --mark-color: black;
-    --mark-color-bg: pink;
+    --mark-color-bg: yellow;
     --footer-color: rgb(0, 90, 255);
     --border-radius: .2rem;
 }
@@ -47,7 +46,9 @@ footer {
 }
 
 a {
-    color: var(--link-color)
+    color: var(--link-color);
+    text-decoration-color: var(--link-underline-color);
+    text-decoration-thickness: .1rem;
 }
 
 a:active {
@@ -96,7 +97,7 @@ kbd {
 
 code {
     background: var(--input-color);
-    border-left: 3px solid var(--secondary-color);
+    border-left: 3px solid var(--primary-color);
     color: var(--bg-color);
     page-break-inside: avoid;
     font-family: monospace;
@@ -106,6 +107,7 @@ code {
     display: block;
     word-wrap: break-word;
     border-radius: var(--border-radius);
+    font-size: 1rem;
 }
 
 table {
@@ -116,7 +118,7 @@ table {
 
 table th {
     color: var(--input-color);
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     text-align: left;
 }
 
@@ -153,8 +155,6 @@ nav ul li ul {
     flex-direction: column;
     right: 0;
     width: auto;
-    box-shadow: .1rem .1rem .5rem var(--shadow-color);
-    border: solid var(--shadow-color) .15px;
     border-radius: var(--border-radius);
     padding: .5rem 1rem;
     background-color: var(--nav-menu-bg-color);
@@ -294,6 +294,7 @@ textarea {
     border: 0;
     border-radius: var(--border-radius);
     padding: .3rem;
+    font-size: 1rem;
 }
 
 input[type="range"] {

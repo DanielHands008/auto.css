@@ -18,7 +18,6 @@ auto.css is a classless css framework with several variables to edit.
     --shadow-color: #5555;
     --primary-color: rgb(0, 90, 255);
     --primary-hover-color: rgb(0, 120, 255);
-    --secondary-color: #4CAF50;
     --mark-color: black;
     --mark-color-bg: pink;
     --footer-color: rgb(0, 90, 255);
