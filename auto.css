@@ -22,13 +22,13 @@
     --mark-color-bg: yellow;
     --footer-color: rgb(0, 90, 255);
     --border-radius: .2rem;
+    --arrow-svg: url('data:image/svg+xml,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg>');
 }
 
 body {
     font-family: sans-serif;
     color: var(--color);
     background-color: var(--bg-color);
-    margin: auto;
     padding-bottom: 0;
 }
 
@@ -99,15 +99,43 @@ details summary {
     padding: .5rem;
     border-radius: var(--border-radius);
 }
+
+details>summary:first-of-type {
+    list-style-type: none;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details summary:before {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background: var(--input-bg-color) var(--arrow-svg) 0% 100% / 12px no-repeat;
+    transform: rotate(-90deg);
+    transform-origin: 40% 57%;
+}
+details[open] summary:before {
+    transform: rotate(0deg);
+}
+
 details[open] summary {
     border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
-details p {
+details :not(:first-child) {
     padding: 1rem 1rem;
     margin: 0;
     background-color: var(--input-bg-color);
+}
+details :last-child {
     border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+details:not([open]) :not(:first-child) {
+    display: none;
 }
 
 kbd {
@@ -138,7 +166,9 @@ table {
     border-radius: var(--border-radius);
     overflow: hidden;
 }
-table th, table tr td {
+
+table th,
+table tr td {
     padding: .25rem;
 }
 
@@ -279,7 +309,7 @@ select {
 }
 
 select:not([multiple]) {
-    background: var(--input-bg-color) url('data:image/svg+xml,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg>') calc(100% - 12px) 50% / 12px no-repeat;
+    background: var(--input-bg-color) var(--arrow-svg) calc(100% - 12px) 50% / 12px no-repeat;
     padding-right: 1.7rem;
 }
 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="auto.css" type="text/css">
 </head>
 
-<body style="max-width: 70rem;">
+<body style="max-width: 70rem;margin: auto;">
     <header>
         <nav>
             <a href="/"><img alt="Logo" src="http://placekitten.com/200/75" style="height: 4rem;"></a>
@@ -50,10 +50,21 @@
             <summary>Expand</summary>
             <p>The details tag can be used to hide content until the user click on it.</p>
         </details>
-<br>
+        <br>
+        <details>
+            <summary>Expand</summary>
+            <p>The details tag can be used to hide content until the user click on it.</p>
+            <div>This one has multiple children.</div>
+        </details>
+        <br>
         <details open>
             <summary>Expand</summary>
             <p>This one starts open.</p>
+        </details>
+        <br>
+        <details open>
+            <summary onclick="if(!('open' in document.createElement('details')))this.parentElement.toggleAttribute('open')">Expand</summary>
+            <p>Edge compatible with the help of javascript. (Although there are still some layout errors.)</p>
         </details>
 
         <form>
