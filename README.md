@@ -26,6 +26,10 @@ Insert after the linked style sheet.
     --mark-color-bg: yellow;
     --footer-color: rgb(0, 90, 255);
     --border-radius: .2rem;
+
+    --drawer-bg-color: white;
+    --drawer-color: black;
+    --drawer-button-hover-color: lightgrey;
   }
 </style>
 ```

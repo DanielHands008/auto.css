@@ -11,7 +11,10 @@
 <body style="max-width: 70rem;margin: auto;">
     <header>
         <nav>
-            <a href="/"><img alt="Logo" src="http://placekitten.com/200/75" style="height: 4rem;"></a>
+            <details drawer>
+                <summary onclick="if(!('open' in document.createElement('details')))this.parentElement.toggleAttribute('open')" style="width: 2rem; margin-top: 1.2rem;"><div style="height: 2rem; width: 2rem; background: var(--hamburger-svg) 0% 100% / 100% no-repeat;"></div></summary>
+                <div style="width:15rem"><span><button>Button</button><button>Button</button><button>Button</button></span><button>Bottom</button></div>
+            </details>
             <h1>auto.css</h1>
             <ul>
                 <li><a href="auto.css">Download</a></li>
