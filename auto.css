@@ -468,6 +468,7 @@ details[drawer][open] {
       top: 0px;
       bottom: 0px;
       transform: translateX(-100%);
+      overflow-x: auto;
   }
   
   details[drawer][right]> :last-child {
