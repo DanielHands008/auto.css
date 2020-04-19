@@ -22,17 +22,16 @@
     --mark-color-bg: yellow;
     --footer-color: rgb(0, 90, 255);
     --border-radius: .2rem;
-
     --drawer-bg-color: white;
     --drawer-color: black;
     --drawer-button-hover-color: lightgrey;
-
     --arrow-svg: url('data:image/svg+xml,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg>');
     --hamburger-svg: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>');
 }
 
 body {
     font-family: sans-serif;
+    text-rendering: optimizeLegibility;
     color: var(--color);
     background-color: var(--bg-color);
     padding-bottom: 0;
@@ -123,6 +122,7 @@ details:not([drawer]) summary:before {
     transform: rotate(-90deg);
     transform-origin: 40% 57%;
 }
+
 details[open]:not([drawer]) summary:before {
     transform: rotate(0deg);
 }
@@ -131,17 +131,20 @@ details[open]:not([drawer]) summary {
     border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
-details:not([drawer]) > :not(:first-child) {
+details:not([drawer])> :not(:first-child) {
     padding: 1rem 1rem;
     margin: 0;
     background-color: var(--input-bg-color);
 }
-details:not([drawer]) > :last-child {
+
+details:not([drawer])> :last-child {
     border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
+
 /* Hide the content of the details tag, use with javascript to add support for edge. */
-details:not([open]):not([drawer]) > :not(:first-child) {
+
+details:not([open]):not([drawer])> :not(:first-child) {
     display: none;
 }
 
@@ -280,10 +283,16 @@ input[type="radio"] {
     padding: .65rem;
     display: inline-block;
     position: relative;
+    border: solid 1px #0000;
 }
 
 input[type="radio"] {
     border-radius: 100%;
+}
+
+input[type="checkbox"]:active:not(:disabled),
+input[type="radio"]:active:not(:disabled) {
+    border: solid 1px var(--link-color-active);
 }
 
 input[type="checkbox"]:checked:after {
@@ -332,25 +341,77 @@ textarea {
     font-size: 1rem;
 }
 
-input[type="range"] {
+input[type="range"],
+input[type="range"]:disabled {
+    background-color: transparent;
+    height: 1rem;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
     background-color: var(--input-bg-color);
     height: .3rem;
     border-radius: 1rem;
     padding: 0;
-    margin: .5rem 0rem;
+    overflow: show;
+}
+
+input[type="range"]:disabled::-webkit-slider-runnable-track {
+    background-color: var(--input-disabled-color);
 }
 
 input[type=range]::-webkit-slider-thumb {
-    background-color: var(--primary-color);
-}
-
-input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
     height: 1rem;
     width: 1rem;
     border-radius: 100%;
     border: 0;
     background-color: var(--primary-color);
-    margin-top: -14px;
+    margin-top: -0.3rem;
+}
+
+input[type='range']::-moz-range-track {
+    background-color: var(--input-bg-color);
+    height: .3rem;
+    border-radius: 1rem;
+    padding: 0;
+}
+
+input[type="range"]:disabled::-moz-range-track {
+    background-color: var(--input-disabled-color);
+}
+
+input[type=range]::-moz-range-thumb {
+    -moz-appearance: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 100%;
+    border: 0;
+    background-color: var(--primary-color);
+}
+
+input[type='range']::-ms-track {
+    background-color: var(--input-bg-color);
+    height: .3rem;
+    border: 0;
+    border-radius: 1rem;
+}
+
+input[type="range"]:disabled::-ms-track {
+    background-color: var(--input-disabled-color);
+}
+
+input[type='range']::-ms-fill-lower,
+input[type='range']::-ms-fill-upper {
+    display: none;
+}
+
+input[type='range']::-ms-thumb {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 100%;
+    border: 0;
+    background-color: var(--primary-color);
+    margin-top: 0rem;
 }
 
 button:disabled,
@@ -435,61 +496,61 @@ nav ul li ul li {
 
 details[drawer][open] {
     z-index: 100;
-  }
-  
-  details[drawer]>summary {
-      width: 100px;
-  }
-  
-  details[drawer][open]>summary:after {
-      content: '';
-      background-color: black;
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      opacity: 0.25;
-      margin: 0;
-  }
-  
-  details[drawer]> :last-child {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background-color: var(--drawer-bg-color);
-      color: var(--drawer-color);
-      position: fixed;
-      margin: 0px;
-      height: 100vh;
-      left: 0px;
-      top: 0px;
-      bottom: 0px;
-      transform: translateX(-100%);
-      overflow-x: auto;
-  }
-  
-  details[drawer][right]> :last-child {
-      transform: translateX(100%);
-      left: auto;
-      right: 0px;
-  }
-  
-  details[drawer][open]> :last-child {
-      transform: translateX(0%);
-  }
-  
-  details[drawer] div button {
-      border-radius: 0;
-      width: 100%;
-      background-color: var(--drawer-bg-color);
-      color: var(--drawer-color);
-      text-align: left;
-      font-weight: normal;
-  }
-  
-  details[drawer] div button:hover {
-      background-color: var(--drawer-button-hover-color);
-  }
+}
+
+details[drawer]>summary {
+    width: 100px;
+}
+
+details[drawer][open]>summary:after {
+    content: '';
+    background-color: black;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.25;
+    margin: 0;
+}
+
+details[drawer]> :last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--drawer-bg-color);
+    color: var(--drawer-color);
+    position: fixed;
+    margin: 0px;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    transform: translateX(-100%);
+    overflow-x: auto;
+}
+
+details[drawer][right]> :last-child {
+    transform: translateX(100%);
+    left: auto;
+    right: 0px;
+}
+
+details[drawer][open]> :last-child {
+    transform: translateX(0%);
+}
+
+details[drawer] div button {
+    border-radius: 0;
+    width: 100%;
+    background-color: var(--drawer-bg-color);
+    color: var(--drawer-color);
+    text-align: left;
+    font-weight: normal;
+}
+
+details[drawer] div button:hover {
+    background-color: var(--drawer-button-hover-color);
+}
