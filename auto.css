@@ -26,7 +26,6 @@
   --drawer-color: black;
   --drawer-button-hover-color: lightgrey;
   --arrow-svg: url('data:image/svg+xml,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg>');
-  --hamburger-svg: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>');
 }
 
 body {
@@ -43,6 +42,7 @@ header {
 
 header,
 main {
+  display: block;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -92,8 +92,10 @@ blockquote:after {
 blockquote:after {
   content: '\275E';
 }
+details, details summary {
+  display: block;
+}
 
-div[oldtype="details"]:not([drawer]),
 details:not([drawer])>* {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -101,31 +103,26 @@ details:not([drawer])>* {
   width: 100%;
 }
 
-div[oldtype="details"]:not([drawer]),
 details:not([drawer]) {
   width: auto;
   display: block;
   color: var(--input-color);
 }
 
-div[oldtype="details"]:not([drawer]) div[oldtype="summary"],
 details:not([drawer]) summary {
   background-color: var(--input-bg-color);
   padding: .5rem;
   border-radius: var(--border-radius);
 }
 
-div[oldtype="details"]>div[oldtype="summary"]:first-of-type,
 details>summary:first-of-type {
   list-style-type: none;
 }
 
-div[oldtype="details"] div[oldtype="summary"]::-webkit-details-marker,
 details summary::-webkit-details-marker {
   display: none;
 }
 
-div[oldtype="details"]:not([drawer]) div[oldtype="summary"]:before,
 details:not([drawer]) summary:before {
   content: '';
   display: inline-block;
@@ -136,24 +133,20 @@ details:not([drawer]) summary:before {
   transform-origin: 40% 57%;
 }
 
-div[oldtype="details"][open]:not([drawer]) div[oldtype="summary"]:before,
 details[open]:not([drawer]) summary:before {
   transform: rotate(0deg);
 }
 
-div[oldtype="details"][open]:not([drawer]) div[oldtype="summary"],
 details[open]:not([drawer]) summary {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
-div[oldtype="details"]:not([drawer])> :not(:first-child),
 details:not([drawer])> :not(:first-child) {
   padding: 1rem 1rem;
   margin: 0;
   background-color: var(--input-bg-color);
 }
 
-div[oldtype="details"]:not([drawer])> :last-child,
 details:not([drawer])> :last-child {
   border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
@@ -161,7 +154,6 @@ details:not([drawer])> :last-child {
 
 /* Hide the content of the details tag, use with javascript to add support for edge. */
 
-div[oldtype="details"]:not([open]):not([drawer])> :not(:first-child),
 details:not([open]):not([drawer])> :not(:first-child) {
   display: none;
 }
@@ -222,7 +214,6 @@ input[type="radio"]:not(:disabled),
 input[type="select"]:not(:disabled),
 input[type="range"]:not(:disabled),
 select:not(:disabled),
-div[oldtype="details"] div[oldtype=summary],
 details summary {
   cursor: pointer;
 }
@@ -263,13 +254,14 @@ fieldset {
   border: solid 1px;
   border-left: 0;
   border-right: 0;
-  width: 0px;
+  width: auto;
   margin: 1rem 0rem;
 }
 
 fieldset legend {
   font-size: large;
   font-weight: bold;
+  color: var(--color);
 }
 
 label {
@@ -513,17 +505,10 @@ nav ul li ul li {
   padding-top: 0;
 }
 
-div[oldtype="details"][drawer][open],
 details[drawer][open] {
   z-index: 100;
 }
 
-/* div[oldtype="details"]>summary,
-details[drawer]>summary {
-  width: 100px;
-} */
-
-div[oldtype="details"][drawer][open]>div[oldtype="summary"]:after,
 details[drawer][open]>summary:after {
   content: '';
   background-color: black;
@@ -538,7 +523,6 @@ details[drawer][open]>summary:after {
   margin: 0;
 }
 
-div[oldtype="details"][drawer]> :last-child,
 details[drawer]> :last-child {
   display: flex;
   flex-direction: column;
@@ -553,21 +537,19 @@ details[drawer]> :last-child {
   bottom: 0px;
   transform: translateX(-100%);
   overflow-x: auto;
+  z-index: 100;
 }
 
-div[oldtype="details"][drawer][right]> :last-child,
 details[drawer][right]> :last-child {
   transform: translateX(100%);
   left: auto;
   right: 0px;
 }
 
-div[oldtype="details"][drawer][open]> :last-child,
 details[drawer][open]> :last-child {
   transform: translateX(0%);
 }
 
-div[oldtype="details"][drawer] div button,
 details[drawer] div button {
   border-radius: 0;
   width: 100%;
@@ -577,11 +559,20 @@ details[drawer] div button {
   font-weight: normal;
 }
 
-div[oldtype="details"][drawer] div button:hover,
 details[drawer] div button:hover {
   background-color: var(--drawer-button-hover-color);
 }
 
-div[oldtype="details"] {
-  color: red;
+/* Fixes for IE */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  select:not([multiple]) {
+    padding-right: .3rem;
+  }
+  details:not([drawer]) summary:before {
+    content: '>';
+    transform: rotate(0deg);
+  }
+  details[open]:not([drawer]) summary:before {
+    transform: rotate(90deg);
+  }
 }

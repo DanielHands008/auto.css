@@ -12,7 +12,7 @@
     <header>
         <nav>
             <details drawer>
-                <summary style="width: 2rem; margin-top: 1.2rem;"><div style="height: 2rem; width: 2rem; background: var(--hamburger-svg) 0% 100% / 100% no-repeat;"></div></summary>
+                <summary style="width: 2rem; margin-top: 1.2rem;"><div style="height: 2rem; width: 2rem;"><svg xmlns="http://www.w3.org/2000/svg" fill="white" width="2rem" height="2rem" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg></div></summary>
                 <div style="width:15rem"><span><button>Button</button><button>Button</button><button>Button</button></span><button>Bottom</button></div>
             </details>
             <h1>auto.css</h1>
@@ -166,6 +166,8 @@
     </footer>
     <!-- This script replaces the details and summary tags with div tags and add an onclick to toggle the open attribute. This give it compatibility with browsers that do not support the details tag, for example, IE and edge. -->
     <script src="iedge.js"></script>
+    <!-- Internet Explorer does not support CSS custom properties. Add ie11CustomProperties to get it working in IE11: https://github.com/nuxodin/ie11CustomProperties -->
+    <script src="https://cdn.jsdelivr.net/npm/ie11-custom-properties@3.1.0/ie11CustomProperties.js"></script>
 </body>
 
 </html>

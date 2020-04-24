@@ -34,3 +34,9 @@ Insert after the linked style sheet.
 </style>
 ```
 >  **Tip:** Set `--link-underline-color` to `#0000` to remove link underlines.
+
+## Legacy support.
+The details and summary tags are not supported in Internet Explorer and Edge. This script adds onclick events to show and hide them.
+```html
+<script src="iedge.js"></script>
+```
