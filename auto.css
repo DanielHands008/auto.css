@@ -4,196 +4,214 @@
 */
 
 :root {
-    --bg-color: #202B38;
-    --nav-menu-bg-color: rgb(41, 48, 58);
-    --color: white;
-    --link-color: skyblue;
-    --link-color-active: red;
-    --link-color-visited: skyblue;
-    --link-underline-color: #0000;
-    --link-underline-color-hover: #EA215A;
-    --button-text-color: white;
-    --input-color: black;
-    --input-bg-color: white;
-    --input-disabled-color: lightgrey;
-    --primary-color: rgb(0, 90, 255);
-    --primary-hover-color: rgb(0, 120, 255);
-    --mark-color: black;
-    --mark-color-bg: yellow;
-    --footer-color: rgb(0, 90, 255);
-    --border-radius: .2rem;
-    --drawer-bg-color: white;
-    --drawer-color: black;
-    --drawer-button-hover-color: lightgrey;
-    --arrow-svg: url('data:image/svg+xml,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg>');
-    --hamburger-svg: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>');
+  --bg-color: #202B38;
+  --nav-menu-bg-color: rgb(41, 48, 58);
+  --color: white;
+  --link-color: skyblue;
+  --link-color-active: red;
+  --link-color-visited: skyblue;
+  --link-underline-color: #0000;
+  --link-underline-color-hover: #EA215A;
+  --button-text-color: white;
+  --input-color: black;
+  --input-bg-color: white;
+  --input-disabled-color: lightgrey;
+  --primary-color: rgb(0, 90, 255);
+  --primary-hover-color: rgb(0, 120, 255);
+  --mark-color: black;
+  --mark-color-bg: yellow;
+  --footer-color: rgb(0, 90, 255);
+  --border-radius: .2rem;
+  --drawer-bg-color: white;
+  --drawer-color: black;
+  --drawer-button-hover-color: lightgrey;
+  --arrow-svg: url('data:image/svg+xml,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg>');
+  --hamburger-svg: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>');
 }
 
 body {
-    font-family: sans-serif;
-    text-rendering: optimizeLegibility;
-    color: var(--color);
-    background-color: var(--bg-color);
-    padding-bottom: 0;
+  font-family: sans-serif;
+  text-rendering: optimizeLegibility;
+  color: var(--color);
+  background-color: var(--bg-color);
+  padding-bottom: 0;
 }
 
 header {
-    padding-top: 1rem;
+  padding-top: 1rem;
 }
 
 header,
 main {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 footer {
-    background-color: var(--footer-color);
-    padding: 1rem;
+  background-color: var(--footer-color);
+  padding: 1rem;
 }
 
 hr {
-    border: 0;
-    border-top: solid 1px var(--color);
+  border: 0;
+  border-top: solid 1px var(--color);
 }
 
 mark {
-    color: var(--mark-color);
-    background-color: var(--mark-color-bg);
+  color: var(--mark-color);
+  background-color: var(--mark-color-bg);
 }
 
 a[href] {
-    color: var(--link-color);
-    text-decoration-color: var(--link-underline-color);
-    text-decoration-thickness: .1rem;
+  color: var(--link-color);
+  text-decoration-color: var(--link-underline-color);
+  text-decoration-thickness: .1rem;
 }
 
 a[href]:hover {
-    text-decoration-color: var(--link-underline-color-hover);
+  text-decoration-color: var(--link-underline-color-hover);
 }
 
 a[href]:active {
-    color: var(--link-color-active)
+  color: var(--link-color-active)
 }
 
 a[href]:visited {
-    color: var(--link-color-visited)
+  color: var(--link-color-visited)
 }
 
 blockquote:before,
 blockquote:after {
-    content: '\275D';
-    line-height: 0rem;
-    font-size: 2rem;
-    position: relative;
-    bottom: -.6rem;
+  content: '\275D';
+  line-height: 0rem;
+  font-size: 2rem;
+  position: relative;
+  bottom: -.6rem;
 }
 
 blockquote:after {
-    content: '\275E';
+  content: '\275E';
 }
 
+div[oldtype="details"]:not([drawer]),
+details:not([drawer])>* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+div[oldtype="details"]:not([drawer]),
 details:not([drawer]) {
-    width: auto;
-    display: block;
-    color: var(--input-color);
+  width: auto;
+  display: block;
+  color: var(--input-color);
 }
 
+div[oldtype="details"]:not([drawer]) div[oldtype="summary"],
 details:not([drawer]) summary {
-    background-color: var(--input-bg-color);
-    padding: .5rem;
-    border-radius: var(--border-radius);
+  background-color: var(--input-bg-color);
+  padding: .5rem;
+  border-radius: var(--border-radius);
 }
 
+div[oldtype="details"]>div[oldtype="summary"]:first-of-type,
 details>summary:first-of-type {
-    list-style-type: none;
+  list-style-type: none;
 }
 
+div[oldtype="details"] div[oldtype="summary"]::-webkit-details-marker,
 details summary::-webkit-details-marker {
-    display: none;
+  display: none;
 }
 
+div[oldtype="details"]:not([drawer]) div[oldtype="summary"]:before,
 details:not([drawer]) summary:before {
-    content: '';
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    background: var(--input-bg-color) var(--arrow-svg) 0% 100% / 0.7rem no-repeat;
-    transform: rotate(-90deg);
-    transform-origin: 40% 57%;
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: var(--input-bg-color) var(--arrow-svg) 0% 100% / 0.7rem no-repeat;
+  transform: rotate(-90deg);
+  transform-origin: 40% 57%;
 }
 
+div[oldtype="details"][open]:not([drawer]) div[oldtype="summary"]:before,
 details[open]:not([drawer]) summary:before {
-    transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
+div[oldtype="details"][open]:not([drawer]) div[oldtype="summary"],
 details[open]:not([drawer]) summary {
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
+div[oldtype="details"]:not([drawer])> :not(:first-child),
 details:not([drawer])> :not(:first-child) {
-    padding: 1rem 1rem;
-    margin: 0;
-    background-color: var(--input-bg-color);
+  padding: 1rem 1rem;
+  margin: 0;
+  background-color: var(--input-bg-color);
 }
 
+div[oldtype="details"]:not([drawer])> :last-child,
 details:not([drawer])> :last-child {
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 
 /* Hide the content of the details tag, use with javascript to add support for edge. */
 
+div[oldtype="details"]:not([open]):not([drawer])> :not(:first-child),
 details:not([open]):not([drawer])> :not(:first-child) {
-    display: none;
+  display: none;
 }
 
 kbd {
-    border: solid 1px var(--color);
-    border-radius: 4px;
-    padding: 2px 4px;
+  border: solid 1px var(--color);
+  border-radius: 4px;
+  padding: 2px 4px;
 }
 
 code {
-    color: var(--input-color);
-    background: var(--input-bg-color);
-    page-break-inside: avoid;
-    font-family: monospace;
-    font-size: .9rem;
-    word-wrap: break-word;
-    line-height: 1.5;
-    border-left: 3px solid var(--primary-color);
-    border-radius: var(--border-radius);
-    overflow: auto;
-    padding: 1em 1.5em;
-    display: block;
+  color: var(--input-color);
+  background: var(--input-bg-color);
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: .9rem;
+  word-wrap: break-word;
+  line-height: 1.5;
+  border-left: 3px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
 }
 
 table {
-    color: #202B38;
-    border-collapse: collapse;
-    width: 100%;
-    border-radius: var(--border-radius);
-    overflow: hidden;
+  color: #202B38;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 table th,
 table tr td {
-    padding: .25rem;
+  padding: .25rem;
 }
 
 table th {
-    color: var(--input-bg-color);
-    background-color: var(--primary-color);
-    text-align: left;
+  color: var(--input-bg-color);
+  background-color: var(--primary-color);
+  text-align: left;
 }
 
 table tr td {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 table tr:nth-child(even) td {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 button:not(:disabled),
@@ -204,66 +222,67 @@ input[type="radio"]:not(:disabled),
 input[type="select"]:not(:disabled),
 input[type="range"]:not(:disabled),
 select:not(:disabled),
+div[oldtype="details"] div[oldtype=summary],
 details summary {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 button,
 input[type="button"],
 input[type="submit"] {
-    color: var(--button-text-color);
-    background-color: var(--primary-color);
-    font-size: medium;
-    font-weight: bold;
-    line-height: .4rem;
-    padding: .9rem 1.5rem;
-    border-radius: var(--border-radius);
-    border: 0px;
+  color: var(--button-text-color);
+  background-color: var(--primary-color);
+  font-size: medium;
+  font-weight: bold;
+  line-height: .4rem;
+  padding: .9rem 1.5rem;
+  border-radius: var(--border-radius);
+  border: 0px;
 }
 
 input:not([type="submit"]):not([type="button"]):not([type="file"]):not([type="range"]):not(:disabled),
 select,
 textarea {
-    color: var(--input-color);
-    background-color: var(--input-bg-color);
+  color: var(--input-color);
+  background-color: var(--input-bg-color);
 }
 
 button:hover:not(:disabled),
 input[type="button"]:hover:not(:disabled),
 input[type="submit"]:hover:not(:disabled) {
-    background-color: var(--primary-hover-color);
+  background-color: var(--primary-hover-color);
 }
 
 button:active:not(:disabled),
 input[type="button"]:active:not(:disabled),
 input[type="submit"]:active:not(:disabled) {
-    box-shadow: inset 0 0 5px #0005;
+  box-shadow: inset 0 0 5px #0005;
 }
 
 fieldset {
-    border: solid 1px;
-    border-left: 0;
-    border-right: 0;
-    width: 0px;
-    margin: 1rem 0rem;
+  border: solid 1px;
+  border-left: 0;
+  border-right: 0;
+  width: 0px;
+  margin: 1rem 0rem;
 }
 
 fieldset legend {
-    font-size: large;
-    font-weight: bold;
+  font-size: large;
+  font-weight: bold;
 }
 
 label {
-    margin: .4rem;
+  margin: .4rem;
 }
 
 input {
-    border: none;
-    border-radius: var(--border-radius);
-    outline: none;
-    padding: .4rem;
-    font-size: 1rem;
-    margin: .2rem 0rem;
+  border: none;
+  border-radius: var(--border-radius);
+  outline: none;
+  padding: .4rem;
+  font-size: 1rem;
+  margin: .2rem 0rem;
 }
 
 input[type="checkbox"],
@@ -271,286 +290,298 @@ input[type="radio"],
 input[type="range"],
 select,
 textarea {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-    top: .4rem;
-    border-radius: 0px;
-    padding: .65rem;
-    display: inline-block;
-    position: relative;
-    border: solid 1px #0000;
+  top: .4rem;
+  border-radius: 0px;
+  padding: .65rem;
+  display: inline-block;
+  position: relative;
+  border: solid 1px #0000;
 }
 
 input[type="radio"] {
-    border-radius: 100%;
+  border-radius: 100%;
 }
 
 input[type="checkbox"]:active:not(:disabled),
 input[type="radio"]:active:not(:disabled) {
-    border: solid 1px var(--link-color-active);
+  border: solid 1px var(--link-color-active);
 }
 
 input[type="checkbox"]:checked:after {
-    font-family: Arial, Helvetica, sans-serif;
-    content: '\2714\00FE0E';
-    position: absolute;
-    top: 0px;
-    left: .25rem;
-    color: var(--primary-color);
-    font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  content: '\2714\00FE0E';
+  position: absolute;
+  top: 0px;
+  left: .25rem;
+  color: var(--primary-color);
+  font-size: 1rem;
 }
 
 input[type="radio"]:checked:after {
-    content: '';
-    background-color: var(--primary-color);
-    border-radius: 100%;
-    width: .8rem;
-    height: .8rem;
-    position: absolute;
-    left: .25rem;
-    top: .25rem;
+  content: '';
+  background-color: var(--primary-color);
+  border-radius: 100%;
+  width: .8rem;
+  height: .8rem;
+  position: absolute;
+  left: .25rem;
+  top: .25rem;
 }
 
 select {
-    border: 0;
-    font-size: medium;
-    padding: .3rem;
-    border-radius: var(--border-radius);
-    margin: .3rem 0;
+  border: 0;
+  font-size: medium;
+  padding: .3rem;
+  border-radius: var(--border-radius);
+  margin: .3rem 0;
 }
 
 select:not([multiple]) {
-    background: var(--input-bg-color) var(--arrow-svg) calc(100% - 0.7rem) 50% / 0.7rem no-repeat;
-    padding-right: 1.7rem;
+  background: var(--input-bg-color) var(--arrow-svg) calc(100% - 0.7rem) 50% / 0.7rem no-repeat;
+  padding-right: 1.7rem;
 }
 
 select[multiple] {
-    padding-right: 10px;
-    overflow-y: auto;
+  padding-right: 10px;
+  overflow-y: auto;
 }
 
 textarea {
-    border: 0;
-    border-radius: var(--border-radius);
-    padding: .3rem;
-    font-size: 1rem;
+  border: 0;
+  border-radius: var(--border-radius);
+  padding: .3rem;
+  font-size: 1rem;
 }
 
 input[type="range"],
 input[type="range"]:disabled {
-    background-color: transparent;
-    height: 1rem;
+  background-color: transparent;
+  height: 1rem;
 }
 
 input[type='range']::-webkit-slider-runnable-track {
-    background-color: var(--input-bg-color);
-    height: .3rem;
-    border-radius: 1rem;
-    padding: 0;
-    overflow: show;
+  background-color: var(--input-bg-color);
+  height: .3rem;
+  border-radius: 1rem;
+  padding: 0;
+  overflow: show;
 }
 
 input[type="range"]:disabled::-webkit-slider-runnable-track {
-    background-color: var(--input-disabled-color);
+  background-color: var(--input-disabled-color);
 }
 
 input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 1rem;
-    width: 1rem;
-    border-radius: 100%;
-    border: 0;
-    background-color: var(--primary-color);
-    margin-top: -0.3rem;
+  -webkit-appearance: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 100%;
+  border: 0;
+  background-color: var(--primary-color);
+  margin-top: -0.3rem;
 }
 
 input[type='range']::-moz-range-track {
-    background-color: var(--input-bg-color);
-    height: .3rem;
-    border-radius: 1rem;
-    padding: 0;
+  background-color: var(--input-bg-color);
+  height: .3rem;
+  border-radius: 1rem;
+  padding: 0;
 }
 
 input[type="range"]:disabled::-moz-range-track {
-    background-color: var(--input-disabled-color);
+  background-color: var(--input-disabled-color);
 }
 
 input[type=range]::-moz-range-thumb {
-    -moz-appearance: none;
-    height: 1rem;
-    width: 1rem;
-    border-radius: 100%;
-    border: 0;
-    background-color: var(--primary-color);
+  -moz-appearance: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 100%;
+  border: 0;
+  background-color: var(--primary-color);
 }
 
 input[type='range']::-ms-track {
-    background-color: var(--input-bg-color);
-    height: .3rem;
-    border: 0;
-    border-radius: 1rem;
+  background-color: var(--input-bg-color);
+  height: .3rem;
+  border: 0;
+  border-radius: 1rem;
 }
 
 input[type="range"]:disabled::-ms-track {
-    background-color: var(--input-disabled-color);
+  background-color: var(--input-disabled-color);
 }
 
 input[type='range']::-ms-fill-lower,
 input[type='range']::-ms-fill-upper {
-    display: none;
+  display: none;
 }
 
 input[type='range']::-ms-thumb {
-    height: 1rem;
-    width: 1rem;
-    border-radius: 100%;
-    border: 0;
-    background-color: var(--primary-color);
-    margin-top: 0rem;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 100%;
+  border: 0;
+  background-color: var(--primary-color);
+  margin-top: 0rem;
 }
 
 button:disabled,
 input:disabled,
 select:disabled,
 input:disabled[type=range]::-webkit-slider-thumb {
-    background-color: var(--input-disabled-color);
-    cursor: not-allowed;
+  background-color: var(--input-disabled-color);
+  cursor: not-allowed;
 }
 
 input:disabled[type=range]::-moz-range-thumb {
-    background-color: var(--input-disabled-color);
-    cursor: not-allowed;
+  background-color: var(--input-disabled-color);
+  cursor: not-allowed;
 }
 
 progress[value] {
-    height: 1.2rem;
-    width: 100%;
-    border: none;
-    border-radius: var(--border-radius);
-    background-color: var(--input-bg-color);
-    color: var(--primary-color)
+  height: 1.2rem;
+  width: 100%;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--input-bg-color);
+  color: var(--primary-color)
 }
 
 progress[value]::-webkit-progress-bar {
-    background-color: var(--input-bg-color);
-    border-radius: var(--border-radius);
+  background-color: var(--input-bg-color);
+  border-radius: var(--border-radius);
 }
 
 progress[value]::-webkit-progress-value {
-    background-color: var(--primary-color);
-    border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
 }
 
 progress[value]::-moz-progress-bar {
-    background-color: var(--primary-color);
-    border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav ul {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 nav ul li {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 }
 
 nav>ul>li:not(:first-child) {
-    margin-left: .5rem;
+  margin-left: .5rem;
 }
 
 nav ul li ul {
-    background-color: var(--nav-menu-bg-color);
-    position: absolute;
-    display: none;
-    flex-direction: column;
-    right: 0;
-    width: auto;
-    border-radius: var(--border-radius);
-    padding: .5rem 1rem;
+  background-color: var(--nav-menu-bg-color);
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  right: 0;
+  width: auto;
+  border-radius: var(--border-radius);
+  padding: .5rem 1rem;
 }
 
 nav ul li:hover ul {
-    display: flex;
+  display: flex;
 }
 
 nav ul li ul li {
-    position: relative;
-    text-align: left;
-    width: auto;
-    white-space: nowrap;
-    padding: .25rem;
-    padding-top: 0;
+  position: relative;
+  text-align: left;
+  width: auto;
+  white-space: nowrap;
+  padding: .25rem;
+  padding-top: 0;
 }
 
+div[oldtype="details"][drawer][open],
 details[drawer][open] {
-    z-index: 100;
+  z-index: 100;
 }
 
+/* div[oldtype="details"]>summary,
 details[drawer]>summary {
-    width: 100px;
-}
+  width: 100px;
+} */
 
+div[oldtype="details"][drawer][open]>div[oldtype="summary"]:after,
 details[drawer][open]>summary:after {
-    content: '';
-    background-color: black;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.25;
-    margin: 0;
+  content: '';
+  background-color: black;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.25;
+  margin: 0;
 }
 
+div[oldtype="details"][drawer]> :last-child,
 details[drawer]> :last-child {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: var(--drawer-bg-color);
-    color: var(--drawer-color);
-    position: fixed;
-    margin: 0px;
-    height: 100vh;
-    left: 0px;
-    top: 0px;
-    bottom: 0px;
-    transform: translateX(-100%);
-    overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--drawer-bg-color);
+  color: var(--drawer-color);
+  position: fixed;
+  margin: 0px;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  transform: translateX(-100%);
+  overflow-x: auto;
 }
 
+div[oldtype="details"][drawer][right]> :last-child,
 details[drawer][right]> :last-child {
-    transform: translateX(100%);
-    left: auto;
-    right: 0px;
+  transform: translateX(100%);
+  left: auto;
+  right: 0px;
 }
 
+div[oldtype="details"][drawer][open]> :last-child,
 details[drawer][open]> :last-child {
-    transform: translateX(0%);
+  transform: translateX(0%);
 }
 
+div[oldtype="details"][drawer] div button,
 details[drawer] div button {
-    border-radius: 0;
-    width: 100%;
-    background-color: var(--drawer-bg-color);
-    color: var(--drawer-color);
-    text-align: left;
-    font-weight: normal;
+  border-radius: 0;
+  width: 100%;
+  background-color: var(--drawer-bg-color);
+  color: var(--drawer-color);
+  text-align: left;
+  font-weight: normal;
 }
 
+div[oldtype="details"][drawer] div button:hover,
 details[drawer] div button:hover {
-    background-color: var(--drawer-button-hover-color);
+  background-color: var(--drawer-button-hover-color);
+}
+
+div[oldtype="details"] {
+  color: red;
 }

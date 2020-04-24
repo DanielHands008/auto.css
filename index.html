@@ -12,7 +12,7 @@
     <header>
         <nav>
             <details drawer>
-                <summary onclick="if(!('open' in document.createElement('details')))this.parentElement.toggleAttribute('open')" style="width: 2rem; margin-top: 1.2rem;"><div style="height: 2rem; width: 2rem; background: var(--hamburger-svg) 0% 100% / 100% no-repeat;"></div></summary>
+                <summary style="width: 2rem; margin-top: 1.2rem;"><div style="height: 2rem; width: 2rem; background: var(--hamburger-svg) 0% 100% / 100% no-repeat;"></div></summary>
                 <div style="width:15rem"><span><button>Button</button><button>Button</button><button>Button</button></span><button>Bottom</button></div>
             </details>
             <h1>auto.css</h1>
@@ -65,10 +65,6 @@
             <p>This one starts open.</p>
         </details>
         <br>
-        <details open>
-            <summary onclick="if(!('open' in document.createElement('details')))this.parentElement.toggleAttribute('open')">Expand</summary>
-            <p>Edge compatible with the help of javascript. (Although there are still some layout errors.)</p>
-        </details>
 
         <form>
             <fieldset>
@@ -168,6 +164,8 @@
     <footer>
         This is the footer.
     </footer>
+    <!-- This script replaces the details and summary tags with div tags and add an onclick to toggle the open attribute. This give it compatibility with browsers that do not support the details tag, for example, IE and edge. -->
+    <script src="iedge.js"></script>
 </body>
 
 </html>
