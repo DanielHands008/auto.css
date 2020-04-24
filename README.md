@@ -9,34 +9,40 @@ Insert after the linked style sheet.
 <style>
   :root {
     --bg-color: #202B38;
-    --nav-menu-bg-color: rgb(41, 48, 58);
-    --color: white;
-    --link-color: skyblue;
-    --link-color-active: red;
+    --nav-menu-bg-color: #29303a;
+    --color: #ffffff;
+    --link-color: #87ceeb;
+    --link-color-active: #EA215A;
     --link-color-visited: skyblue;
-    --link-underline-color: #0000;
+    --link-underline-color: transparent;
     --link-underline-color-hover: #EA215A;
-    --button-text-color: white;
-    --input-color: black;
-    --input-bg-color: white;
-    --input-disabled-color: lightgrey;
-    --primary-color: rgb(0, 90, 255);
-    --primary-hover-color: rgb(0, 120, 255);
-    --mark-color: black;
-    --mark-color-bg: yellow;
-    --footer-color: rgb(0, 90, 255);
+    --button-text-color: #ffffff;
+    --input-color: #000000;
+    --input-bg-color: #ffffff;
+    --input-disabled-color: #d3d3d3;
+    --primary-color: #005aff;
+    --primary-hover-color: #0078ff;
+    --mark-color: #000000;
+    --mark-color-bg: #ffff00;
+    --footer-color: #005aff;
     --border-radius: .2rem;
-
-    --drawer-bg-color: white;
-    --drawer-color: black;
-    --drawer-button-hover-color: lightgrey;
+    
+    --drawer-bg-color: #ffffff;
+    --drawer-color: #000000;
+    --drawer-button-hover-color: #d3d3d3;
   }
 </style>
 ```
->  **Tip:** Set `--link-underline-color` to `#0000` to remove link underlines.
 
 ## Legacy support.
+### Details Tag
 The details and summary tags are not supported in Internet Explorer and Edge. This script adds onclick events to show and hide them.
 ```html
 <script src="iedge.js"></script>
+```
+### Internet Explorer 11 support for CSS custom properties.
+Custom CSS properties such as `--bg-color` are not supported in Internet Explorer this library adds support for IE11.
+https://github.com/nuxodin/ie11CustomProperties
+```html
+<script>window.MSInputMethodContext && document.documentMode && document.write('<script src="https://cdn.jsdelivr.net/npm/ie11-custom-properties@3.1.0/ie11CustomProperties.js"><\x2fscript>');</script>
 ```
