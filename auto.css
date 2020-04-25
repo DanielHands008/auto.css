@@ -232,6 +232,25 @@ input[type="submit"] {
   border-radius: var(--border-radius);
   border: 0px;
 }
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[type="checkbox"],
+input[type="radio"],
+textarea,
+select {
+  margin-top: .1rem;
+  margin-bottom: .1rem;
+}
 
 button:disabled,
 input:disabled {
@@ -367,7 +386,6 @@ select {
   font-size: medium;
   padding: .3rem;
   border-radius: var(--border-radius);
-  margin: .3rem 0;
 }
 
 select:not([multiple]) {
@@ -440,6 +458,7 @@ input[type='range']::-ms-track {
   height: .3rem;
   border: 0;
   border-radius: 1rem;
+  color: transparent;
 }
 
 input[type="range"]:disabled::-ms-track {
