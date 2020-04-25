@@ -92,7 +92,9 @@ blockquote:after {
 blockquote:after {
   content: '\275E';
 }
-details, details summary {
+
+details,
+details summary {
   display: block;
 }
 
@@ -231,7 +233,15 @@ input[type="submit"] {
   border: 0px;
 }
 
-input:not([type="submit"]):not([type="button"]):not([type="file"]):not([type="range"]):not(:disabled),
+button:disabled,
+input:disabled {
+  background-color: var(--input-disabled-color);
+}
+input[type="file"], input[type="file"]:disabled {
+  background-color: transparent;
+}
+
+input:not([type="submit"]):not([type="button"]):not([type="file"]):not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(:disabled),
 select,
 textarea {
   color: var(--input-color);
@@ -256,6 +266,7 @@ fieldset {
   border-right: 0;
   width: auto;
   margin: 1rem 0rem;
+  display: inline-block;
 }
 
 fieldset legend {
@@ -264,17 +275,12 @@ fieldset legend {
   color: var(--color);
 }
 
-label {
-  margin: .4rem;
-}
-
 input {
   border: none;
   border-radius: var(--border-radius);
   outline: none;
   padding: .4rem;
   font-size: 1rem;
-  margin: .2rem 0rem;
 }
 
 input[type="checkbox"],
@@ -291,19 +297,17 @@ input[type="checkbox"],
 input[type="radio"] {
   top: .4rem;
   border-radius: 0px;
-  padding: .65rem;
+  padding: 0rem;
   display: inline-block;
   position: relative;
-  border: solid 1px #0000;
+  border: solid 1px transparent;
+  background-color: var(--input-bg-color);
+  width: 1.59rem;
+  height: 1.6rem;
 }
 
 input[type="radio"] {
   border-radius: 100%;
-}
-
-input[type="checkbox"]:active:not(:disabled),
-input[type="radio"]:active:not(:disabled) {
-  border: solid 1px var(--link-color-active);
 }
 
 input[type="checkbox"]:checked:after {
@@ -311,7 +315,7 @@ input[type="checkbox"]:checked:after {
   content: '\2714\00FE0E';
   position: absolute;
   top: 0px;
-  left: .25rem;
+  left: .35rem;
   color: var(--primary-color);
   font-size: 1rem;
 }
@@ -323,8 +327,39 @@ input[type="radio"]:checked:after {
   width: .8rem;
   height: .8rem;
   position: absolute;
-  left: .25rem;
-  top: .25rem;
+  left: .35rem;
+  top: .32rem;
+}
+
+input::-ms-check {
+  top: .4rem;
+  border-radius: 0px;
+  padding: 0rem;
+  display: inline-block;
+  position: relative;
+  border: none;
+  color: var(--primary-color);
+  transform: scale(1.5);
+  margin: .5rem;
+}
+input:active::-ms-check {
+  background-color: var(--input-bg-color);
+}
+
+input[type="checkbox"]:disabled,
+input[type="radio"]:disabled,
+input:disabled::-ms-check {
+  background-color: var(--input-disabled-color);
+  cursor: not-allowed;
+}
+
+input[type="radio"]::-ms-check {
+  border-radius: 100%;
+}
+
+input[type="checkbox"]:focus:not(:disabled),
+input[type="radio"]:focus:not(:disabled) {
+  border: solid 1px var(--primary-color);
 }
 
 select {
@@ -462,6 +497,51 @@ progress[value]::-moz-progress-bar {
   border-radius: var(--border-radius);
 }
 
+
+/* IE Fixes */
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+  select:not([multiple]) {
+    padding-right: .3rem;
+  }
+  details:not([drawer]) summary:before {
+    content: '>';
+    transform: rotate(0deg);
+  }
+  details[open]:not([drawer]) summary:before {
+    transform: rotate(90deg);
+  }
+}
+
+
+/* Edge Fixes */
+@supports (-ms-ime-align:auto) {
+  input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+  }
+  input[type="radio"] {
+    -webkit-appearance: radio;
+  }
+  input[type="checkbox"]:not(:active),
+  input[type="radio"]:not(:active) {
+    border: solid 1px var(--input-bg-color);
+  }
+  input[type="checkbox"]:disabled:not(:active),
+  input[type="radio"]:disabled:not(:active) {
+    border: solid 1px var(--input-disabled-color);
+  }
+}
+
+/* Safari Fix */
+@media not all and (min-resolution:.001dpcm) {
+  input[type="checkbox"]:checked:after {
+    margin-top: .2rem;
+  }
+}
+
+
+/* Extended UI elements */
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -561,18 +641,4 @@ details[drawer] div button {
 
 details[drawer] div button:hover {
   background-color: var(--drawer-button-hover-color);
-}
-
-/* Fixes for IE */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  select:not([multiple]) {
-    padding-right: .3rem;
-  }
-  details:not([drawer]) summary:before {
-    content: '>';
-    transform: rotate(0deg);
-  }
-  details[open]:not([drawer]) summary:before {
-    transform: rotate(90deg);
-  }
 }

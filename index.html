@@ -78,18 +78,21 @@
                 <label><input type="checkbox" name="CheckboxR" required> Required Checkbox</label><br><br>
                 <input type="submit" value="Submit">
             </fieldset>
+            <br>
             <button>Button</button><br>
             <button disabled>Disabled</button><br>
-            <input type="button" value="Input Button">
+            <input type="button" value="Input Button"><br>
+            <input type="button" value="Disabled Input Button" disabled>
             <br>
             <label><input type="checkbox" name="Checkbox1"> First Checkbox</label><br>
             <label><input type="checkbox" name="Checkbox2" checked> Second Checkbox</label><br>
             <label><input type="checkbox" name="CheckboxD" disabled> Disabled Checkbox</label><br>
             <label><input type="radio" name="Radio" value="Radio1"> First Radio</label><br>
             <label><input type="radio" name="Radio" value="Radio2" checked> Second Radio</label><br>
-            <label><input type="radio" name="Radio" value="RadioD" disabled> Disabled Radio</label><br>
+            <label><input type="radio" name="Radio" value="RadioD" disabled> Disabled Radio</label><br><br>
             <input type="text" name="disabledText" value="Disabled input" disabled><br>
             <input type="file" name="image"><br>
+            <input type="file" name="image" disabled><br>
             <input type="number" value="42"><br>
             <input type="time"><br>
             <input type="date"><br>
@@ -164,7 +167,7 @@
     <footer>
         This is the footer.
     </footer>
-    <!-- This script replaces the details and summary tags with div tags and add an onclick to toggle the open attribute. This give it compatibility with browsers that do not support the details tag, for example, IE and edge. -->
+    <!-- This script adds an onclick to toggle the open attribute on the details tag when it is not supported. This give it compatibility with browsers that do not support the details tag, for example, IE and edge. -->
     <script src="iedge.js"></script>
     <!-- Internet Explorer does not support CSS custom properties. Add ie11CustomProperties to get it working in IE11: https://github.com/nuxodin/ie11CustomProperties -->
     <script>window.MSInputMethodContext && document.documentMode && document.write('<script src="https://cdn.jsdelivr.net/npm/ie11-custom-properties@3.1.0/ie11CustomProperties.js"><\x2fscript>');</script>
