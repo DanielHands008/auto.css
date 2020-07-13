@@ -9,7 +9,6 @@ Insert after the linked style sheet.
 <style>
   :root {
     --bg-color: #202B38;
-    --nav-menu-bg-color: #29303a;
     --color: #ffffff;
     --link-color: #87ceeb;
     --link-color-active: #EA215A;
@@ -26,10 +25,6 @@ Insert after the linked style sheet.
     --mark-color-bg: #ffff00;
     --footer-color: #005aff;
     --border-radius: .2rem;
-    
-    --drawer-bg-color: #ffffff;
-    --drawer-color: #000000;
-    --drawer-button-hover-color: #d3d3d3;
   }
 </style>
 ```

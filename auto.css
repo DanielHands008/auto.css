@@ -5,7 +5,6 @@
 
 :root {
   --bg-color: #202B38;
-  --nav-menu-bg-color: #29303a;
   --color: #ffffff;
   --link-color: #87ceeb;
   --link-color-active: #EA215A;
@@ -22,9 +21,6 @@
   --mark-color-bg: #ffff00;
   --footer-color: #005aff;
   --border-radius: .2rem;
-  --drawer-bg-color: #ffffff;
-  --drawer-color: #000000;
-  --drawer-button-hover-color: #d3d3d3;
   --arrow-svg: url('data:image/svg+xml,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"/></svg>');
 }
 
@@ -38,13 +34,27 @@ body {
 
 header {
   padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 header,
 main {
-  display: block;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+nav {
+  display: flex;
+  vertical-align: middle;
+}
+
+nav>* {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+nav>*:not(:first-of-type) {
+  margin-left: 12px;
 }
 
 footer {
@@ -62,21 +72,21 @@ mark {
   background-color: var(--mark-color-bg);
 }
 
-a[href] {
+a:link {
   color: var(--link-color);
   text-decoration-color: var(--link-underline-color);
   text-decoration-thickness: .1rem;
 }
 
-a[href]:hover {
+a:hover {
   text-decoration-color: var(--link-underline-color-hover);
 }
 
-a[href]:active {
+a:active {
   color: var(--link-color-active)
 }
 
-a[href]:visited {
+a:visited {
   color: var(--link-color-visited)
 }
 
@@ -516,7 +526,6 @@ progress[value]::-moz-progress-bar {
   border-radius: var(--border-radius);
 }
 
-
 /* IE Fixes */
 @media screen and (-ms-high-contrast: active),
 (-ms-high-contrast: none) {
@@ -531,7 +540,6 @@ progress[value]::-moz-progress-bar {
     transform: rotate(90deg);
   }
 }
-
 
 /* Edge Fixes */
 @supports (-ms-ime-align:auto) {
@@ -556,108 +564,4 @@ progress[value]::-moz-progress-bar {
   input[type="checkbox"]:checked:after {
     margin-top: .2rem;
   }
-}
-
-
-/* Extended UI elements */
-
-nav {
-  display: flex;
-  justify-content: space-between;
-}
-
-nav ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-nav ul li {
-  display: inline-block;
-  position: relative;
-}
-
-nav>ul>li:not(:first-child) {
-  margin-left: .5rem;
-}
-
-nav ul li ul {
-  background-color: var(--nav-menu-bg-color);
-  position: absolute;
-  display: none;
-  flex-direction: column;
-  right: 0;
-  width: auto;
-  border-radius: var(--border-radius);
-  padding: .5rem 1rem;
-}
-
-nav ul li:hover ul {
-  display: flex;
-}
-
-nav ul li ul li {
-  position: relative;
-  text-align: left;
-  width: auto;
-  white-space: nowrap;
-  padding: .25rem;
-  padding-top: 0;
-}
-
-details[drawer][open] {
-  z-index: 100;
-}
-
-details[drawer][open]>summary:after {
-  content: '';
-  background-color: black;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0.25;
-  margin: 0;
-}
-
-details[drawer]> :last-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: var(--drawer-bg-color);
-  color: var(--drawer-color);
-  position: fixed;
-  margin: 0px;
-  height: 100vh;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  transform: translateX(-100%);
-  overflow-x: auto;
-  z-index: 100;
-}
-
-details[drawer][right]> :last-child {
-  transform: translateX(100%);
-  left: auto;
-  right: 0px;
-}
-
-details[drawer][open]> :last-child {
-  transform: translateX(0%);
-}
-
-details[drawer] div button {
-  border-radius: 0;
-  width: 100%;
-  background-color: var(--drawer-bg-color);
-  color: var(--drawer-color);
-  text-align: left;
-  font-weight: normal;
-}
-
-details[drawer] div button:hover {
-  background-color: var(--drawer-button-hover-color);
 }
